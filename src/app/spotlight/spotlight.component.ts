@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
 import { SpotlightService } from './spotlight.service';
+import { SpotlightModel } from './spotlight';
 
 @Component({
     selector: 'spotlight',
-    templateUrl: `<div>Spotlight</div><spotlight-header />`,
-    styleUrls: ['./visualizationHeader.component.less']
+    templateUrl: './spotlight.component.html'
 })
 
 export class Spotlight {
-    constructor(private svc: SpotlightService) {
-        
+    model: SpotlightModel;
+    constructor(public svc: SpotlightService) {
+        this.model = {
+            name: 'spotlight',
+            analysis: [{name: 'analysis'}, {name: 'analysis1'}],
+            header: { name: 'spotlightHeader' },
+            valueFilter: { name: 'ValueFilter' },
+        };
     }
 }

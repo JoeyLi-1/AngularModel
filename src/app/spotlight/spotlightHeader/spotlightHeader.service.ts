@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Spotlight, SpotlightHeaderProps, SpotlightHeaderStates } from '../spotlight';
-import { Model } from '../spotlight.model';
+import { SpotlightHeaderProps } from '../spotlight';
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 
 export class SpotlightHeaderService {
-    model: Model<SpotlightHeaderProps, SpotlightHeaderStates>;
+    constructor() {
+        
+    }
 
-    constructor(props: SpotlightHeaderProps, states: SpotlightHeaderStates) {
-        this.model = new Model(props, states);
+    changeHeaderName(model: SpotlightHeaderProps) {
+        model.name = "SpotlightHeaderService.changeHeaderName" + model.name;
     }
 }

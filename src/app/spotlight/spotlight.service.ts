@@ -1,8 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Spotlight } from './spotlight';
+import { SpotlightModel, Analysis } from './spotlight';
 
 @Injectable({providedIn: 'root'})
 
 export class SpotlightService {
+    constructor() {
+        
+    }
 
+    changeSpotlightName(model: SpotlightModel) {
+        model.name = "SpotlightService.changeSpotlightName";
+        model.header.name = "Header changed by Spotlight service";
+    }
+
+    changeAnalysisName(analysis: Analysis) {
+        analysis.name = "SpotlightService.changeAnalysisName" + analysis.name;
+    }
 }

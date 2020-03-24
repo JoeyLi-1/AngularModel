@@ -1,20 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { SpotlightHeaderService } from './spotlightHeader.service';
+import { SpotlightHeaderProps } from '../spotlight';
 
 @Component({
     selector: 'spotlight-header',
-    templateUrl: `<div>Spotlight Header - {{svc.model.states.name}} - {{svc.model.states.name2}}</div>`,
-    styleUrls: ['./visualizationHeader.component.less']
+    templateUrl: './spotlightHeader.component.html'
 })
 
-export class SpotlightHeader {
+export class SpotlightHeader implements OnChanges {
 
-    @Input() 
-    set data(val: any) {
-        this.svc.model.setProps(val);
+    @Input() data: SpotlightHeaderProps;
+
+    constructor(public svc: SpotlightHeaderService) {
+        
     }
 
-    constructor(private svc: SpotlightHeaderService) {
-        
+    ngOnChanges(chg: SimpleChanges) {
+        console.log(chg);
     }
 }

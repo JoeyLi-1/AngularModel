@@ -1,16 +1,18 @@
-export interface Spotlight {
+export interface SpotlightModel {
     name: string;
     analysis: Analysis[];
+    header: SpotlightHeaderProps;
+    valueFilter: ValueFilterProps;
 }
 
 export interface SpotlightHeaderProps {
     name: string;
 }
 
-export interface SpotlightHeaderStates extends SpotlightHeaderProps {
-    name2: string;
+export interface Analysis {
+    name: string;
 }
 
-export interface Analysis {
+export interface ValueFilterProps {
     name: string;
 }

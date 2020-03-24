@@ -1,0 +1,10 @@
+<spotlight-header [data]="model.header"></spotlight-header>
+<value-filter [data]="model.valueFilter"></value-filter>
+<div>{{model.name}}</div>
+<ul>
+    <ng-container *ngFor="let analys of model.analysis;">
+        <li>{{analys.name}}</li>
+        <button (click)="svc.changeAnalysisName(analys)">Change Analysis Name</button>
+    </ng-container>
+</ul>
+<button (click)="svc.changeSpotlightName(model)">Change Spotlight Name</button>
