@@ -12,9 +12,14 @@ export class Spotlight {
     constructor(public svc: SpotlightService) {
         this.model = {
             name: 'spotlight',
-            analysis: [{name: 'analysis'}, {name: 'analysis1'}],
+            analysis: [{name: 'analysis - 1'}, {name: 'analysis - 2'}],
             header: { name: 'spotlightHeader' },
             valueFilter: { name: 'ValueFilter' },
+            pagination: { count: ['1', '2'], currentIndex: 0 }
         };
+    }
+
+    selectPageChanged(index: number) {
+        this.svc.selectedPageChanged(index, this.model);
     }
 }

@@ -3,6 +3,7 @@ export interface SpotlightModel {
     analysis: Analysis[];
     header: SpotlightHeaderProps;
     valueFilter: ValueFilterProps;
+    pagination: PaginationProps;
 }
 
 export interface SpotlightHeaderProps {
@@ -15,4 +16,9 @@ export interface Analysis {
 
 export interface ValueFilterProps {
     name: string;
+}
+
+export interface PaginationProps {
+    count: string[];
+    currentIndex: number;
 }

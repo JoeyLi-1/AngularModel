@@ -1,0 +1,6 @@
+<div>
+    Page: 
+    <ng-container *ngFor="let page of data?.count">
+        <button (click)="svc.selectedPageChanged(page, selectPage, data)">{{page}}</button>
+    </ng-container>
+</div>

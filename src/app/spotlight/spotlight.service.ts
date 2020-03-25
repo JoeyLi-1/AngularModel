@@ -16,4 +16,8 @@ export class SpotlightService {
     changeAnalysisName(analysis: Analysis) {
         analysis.name = "SpotlightService.changeAnalysisName" + analysis.name;
     }
+
+    selectedPageChanged(index: number, model: SpotlightModel) {
+        alert(`Current select analysis is: ${model.analysis[index].name}`);
+    }
 }

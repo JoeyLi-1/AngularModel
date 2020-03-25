@@ -10,13 +10,16 @@ import { SpotlightHeader } from './spotlight/spotlightHeader/spotlightHeader.com
 import { SpotlightHeaderService } from './spotlight/spotlightHeader/spotlightHeader.service';
 import { ValueFilterComponet } from './spotlight/valueFiilter/valueFilter.component';
 import { ValueFilterService } from './spotlight/valueFiilter/valueFilter.service';
+import { PaginationService } from './spotlight/pagination/pagination.service';
+import { PaginationComponent } from './spotlight/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Spotlight,
     SpotlightHeader,
-    ValueFilterComponet
+    ValueFilterComponet,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { ValueFilterService } from './spotlight/valueFiilter/valueFilter.service
   providers: [
     SpotlightService,
     SpotlightHeaderService,
-    ValueFilterService
+    ValueFilterService,
+    PaginationService
   ],
   bootstrap: [AppComponent]
 })
