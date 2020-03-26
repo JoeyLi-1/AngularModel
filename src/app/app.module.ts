@@ -13,23 +13,29 @@ import { ValueFilterService } from './spotlight/valueFiilter/valueFilter.service
 import { PaginationService } from './spotlight/pagination/pagination.service';
 import { PaginationComponent } from './spotlight/pagination/pagination.component';
 
+
+import { SpotlightsComponent } from './spotlights/spotlights.component';
+import { SpotlightsService } from './spotlights/spotlights.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    Spotlight,
-    SpotlightHeader,
-    ValueFilterComponet,
-    PaginationComponent
+    // Spotlight,
+    // SpotlightHeader,
+    // ValueFilterComponet,
+    // PaginationComponent,
+    SpotlightsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [
-    SpotlightService,
-    SpotlightHeaderService,
-    ValueFilterService,
-    PaginationService
+  providers: [ // Service 
+    // SpotlightService,
+    // SpotlightHeaderService,
+    // ValueFilterService,
+    // PaginationService,
+    SpotlightsService
   ],
   bootstrap: [AppComponent]
 })
