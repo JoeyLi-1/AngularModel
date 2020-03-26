@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SpotlightModel, Analysis } from './spotlight';
 
-@Injectable({providedIn: 'root'})
+@Injectable({providedIn: 'root'}) //全局的单例  《--写这个表示
 
 export class SpotlightService {
     constructor() {

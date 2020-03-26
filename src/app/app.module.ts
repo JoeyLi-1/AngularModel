@@ -21,16 +21,16 @@ import { PaginationComponent } from './spotlight/pagination/pagination.component
     ValueFilterComponet,
     PaginationComponent
   ],
-  imports: [
+  imports: [  //导入比如 navigation 第三方的库 
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [
+  providers: [   //自动给写成单例 
     SpotlightService,
     SpotlightHeaderService,
     ValueFilterService,
     PaginationService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]//启动时加载那个模块
 })
 export class AppModule { }

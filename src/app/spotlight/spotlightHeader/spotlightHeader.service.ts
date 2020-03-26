@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SpotlightHeaderProps } from '../spotlight';
 
-@Injectable()
+@Injectable()  //当前模块作用于
 
 export class SpotlightHeaderService {
     constructor() {

@@ -7,16 +7,16 @@ import { PaginationProps } from '../spotlight';
     templateUrl: './pagination.component.html'
 })
 
-export class PaginationComponent implements OnChanges {
+export class PaginationComponent implements OnChanges {// OnChange接口   shouldUpdateConponent--RN
 
-    @Input() data: PaginationProps;
+    @Input() data: PaginationProps;//prop   将Prop 和State 包在一块 合在一起?  依然很干净
     @Output() selectPage: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(public svc: PaginationService) {
         
     }
 
-    ngOnChanges(chg: SimpleChanges) {
+    ngOnChanges(chg: SimpleChanges) {   // 包着数据
         console.log(chg);
     }
 }
