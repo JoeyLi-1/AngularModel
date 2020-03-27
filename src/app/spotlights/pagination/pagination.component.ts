@@ -1,5 +1,5 @@
 import { Component, Input, Output,EventEmitter, OnChanges } from '@angular/core'
-import { PaginationProps } from 'src/app/spotlight/spotlight'
+import { PaginationProps } from 'src/app/spotlights/spotlights'
 import {PaginationsService} from './pagination.component.service'
 
 @Component({
@@ -18,6 +18,6 @@ export class Pagination implements OnChanges{
     }
 
     ngOnChanges() {
-        
+
     }
 }

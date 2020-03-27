@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { PaginationProps } from 'src/app/spotlight/spotlight'
+import { PaginationProps } from '../spotlights';
 
 @Injectable()
 
