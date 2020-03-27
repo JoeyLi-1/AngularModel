@@ -15,7 +15,15 @@ import { PaginationComponent } from './spotlight/pagination/pagination.component
 
 
 import { SpotlightsComponent } from './spotlights/spotlights.component';
+import { Pagination } from './spotlights/pagination/pagination.component';
+import { SpotlightsHeader } from './spotlights/spotlightsHeader/spotlightsHeader.component';
+import { ValueComponent } from './spotlights/valueFitter/value.component';
+
 import { SpotlightsService } from './spotlights/spotlights.service';
+import { PaginationsService } from './spotlights/pagination/pagination.component.service';
+import { SpotlightsHeaderService } from './spotlights/spotlightsHeader/spotlightsHeader.service';
+import { ValueService } from './spotlights/valueFitter/value.component.service';
+
 
 @NgModule({
   declarations: [
@@ -25,17 +33,23 @@ import { SpotlightsService } from './spotlights/spotlights.service';
     // ValueFilterComponet,
     // PaginationComponent,
     SpotlightsComponent,
+    Pagination,
+    SpotlightsHeader,
+    ValueComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [ // Service 
-    // SpotlightService,
-    // SpotlightHeaderService,
-    // ValueFilterService,
-    // PaginationService,
-    SpotlightsService
+    SpotlightService,
+    SpotlightHeaderService,
+    ValueFilterService,
+    PaginationService,
+    SpotlightsService,
+    PaginationsService,
+    SpotlightsHeaderService,
+    ValueService
   ],
   bootstrap: [AppComponent]
 })
