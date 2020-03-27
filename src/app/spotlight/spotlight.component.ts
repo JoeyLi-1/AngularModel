@@ -12,10 +12,10 @@ export class Spotlight {
     constructor(public svc: SpotlightService) {
         this.model = {
             name: 'spotlight',
-            analysis: [{name: 'analysis - 1'}, {name: 'analysis - 2'}],
+            analysis: [{name: 'analysis - 1'}, {name: 'analysis - 2'}, {name: 'analysis - 3'}],
             header: { name: 'spotlightHeader' },
             valueFilter: { name: 'ValueFilter' },
-            pagination: { count: ['1', '2'], currentIndex: 0 }
+            pagination: { count: ['1', '2', '3'], currentIndex: 0 }
         };
     }
 

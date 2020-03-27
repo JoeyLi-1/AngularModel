@@ -1,6 +1,10 @@
-<div>
+<div class="pagination-div">
     Page: 
-    <ng-container *ngFor="let page of data?.count">
-        <button (click)="svc.selectedPageChanged(page, selectPage, data)">{{page}}</button>
-    </ng-container>
+    <button (click)="svc.previousPageChanged(modle)">«</button>
+    <div class="pagination-btn">
+        <ng-container *ngFor="let page of data?.count">
+            <button (click)="svc.selectedPageChanged(page, selectPage, data)">{{page}}</button>
+        </ng-container>
+    </div>
+    <button (click)="svc.nextPageChanged(modle)">»</button>
 </div>
