@@ -13,7 +13,7 @@ export class PaginationComponent implements OnChanges {
 
     @Input() data: PaginationProps;
     @Output() selectPage: EventEmitter<any> = new EventEmitter<any>();
-    @Input() modle: SpotlightModel;
+    @Output() pageNumber: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(public svc: PaginationService) {
         

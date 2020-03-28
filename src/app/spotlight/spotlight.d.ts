@@ -21,4 +21,5 @@ export interface ValueFilterProps {
 export interface PaginationProps {
     count: string[];
     currentIndex: number;
+    whichPage:number;
 }
