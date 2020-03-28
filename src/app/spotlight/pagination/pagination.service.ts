@@ -14,4 +14,8 @@ export class PaginationService {
         cb.emit(indexId);
         data.currentIndex = indexId;
     }
+
+    nextOrPreviousPageChanged(pNumber: number, pageNumberEmitter: EventEmitter<any>) {
+        pageNumberEmitter.emit(pNumber);
+    }
 }
