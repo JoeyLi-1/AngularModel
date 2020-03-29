@@ -1,0 +1,12 @@
+<div class="pagination">
+    <button class="button-noSelected" (click)="service.selectedPage('-1', selectedPageFuncation, analysis)">{{"<<"}}</button>
+    <ng-container *ngFor="let page of analysis?.count; let i = index">
+        <ng-container *ngIf="analysis.currentIndex === i">
+        <button class="button-selected" (click)="service.selectedPage(page, selectedPageFuncation, analysis)">{{page}}</button>
+        </ng-container>
+        <ng-container *ngIf="analysis.currentIndex !== i">
+        <button class="button-noSelected" (click)="service.selectedPage(page, selectedPageFuncation, analysis)">{{page}}</button>
+        </ng-container>
+    </ng-container> 
+    <button class="button-noSelected" (click)="service.selectedPage('-100', selectedPageFuncation, analysis)">{{">>"}}</button>
+</div>  
