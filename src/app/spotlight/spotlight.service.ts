@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SpotlightModel, Analysis } from './spotlight';
 
-@Injectable({providedIn: 'root'})
+@Injectable({providedIn: 'root'}) 
 
 export class SpotlightService {
     constructor() {
@@ -19,5 +19,6 @@ export class SpotlightService {
 
     selectedPageChanged(index: number, model: SpotlightModel) {
         alert(`Current select analysis is: ${model.analysis[index].name}`);
+        
     }
 }

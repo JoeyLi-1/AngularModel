@@ -1,6 +1,12 @@
-<div>
+<div ng-app="myApp">
     Page: 
-    <ng-container *ngFor="let page of data?.count">
-        <button (click)="svc.selectedPageChanged(page, selectPage, data)">{{page}}</button>
+    <ng-container *ngFor="let page of data?.count,let i = index">
+       
+        <button
+        (click)="svc.selectedPageChanged(page, selectPage, data)"
+         [ngStyle]="{'background-color': selectPage == i ? 'green':'white'}"
+        >{{page}}</button>
+       
     </ng-container>
+    
 </div>

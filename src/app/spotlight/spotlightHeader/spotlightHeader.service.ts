@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SpotlightHeaderProps } from '../spotlight';
 
-@Injectable()
+@Injectable() 
 
 export class SpotlightHeaderService {
     constructor() {

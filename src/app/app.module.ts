@@ -21,11 +21,11 @@ import { PaginationComponent } from './spotlight/pagination/pagination.component
     ValueFilterComponet,
     PaginationComponent
   ],
-  imports: [
+  imports: [  
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [
+  providers: [  
     SpotlightService,
     SpotlightHeaderService,
     ValueFilterService,

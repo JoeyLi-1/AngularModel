@@ -16,7 +16,6 @@ export class PaginationComponent implements OnChanges {
         
     }
 
-    ngOnChanges(chg: SimpleChanges) {
-        console.log(chg);
+    ngOnChanges(chg: SimpleChanges) {  
     }
 }

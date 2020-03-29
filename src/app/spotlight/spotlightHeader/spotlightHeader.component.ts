@@ -16,6 +16,6 @@ export class SpotlightHeader implements OnChanges {
     }
 
     ngOnChanges(chg: SimpleChanges) {
-        console.log(chg);
+        console.log('--SpotlightHeader--ngOnChanges--->>>',chg);
     }
 }
