@@ -15,7 +15,8 @@ import {TestModModule} from './reactComponent/testMod/testMod.module';
     AppRoutingModule,
     TestModModule.forRoot()
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
