@@ -1,21 +1,32 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "downlevelIteration": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "noImplicitAny": true,
+    "allowJs": true,
+    "strictPropertyInitialization": false,
+    "strict": false,
+    "target": "es6",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "es2017",
       "dom"
-    ]
-  }
+    ],
+    "diagnostics": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+      "preserveWhitespaces": true
+  },
 }

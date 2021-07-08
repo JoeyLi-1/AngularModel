@@ -1,0 +1,1 @@
+export type ButtonType = 'ok' | 'cancel' | 'apply';
