@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { ITestModProps, ITestModStates, ITestModOutput } from './testMod.component.d';
 import { ITestHeaderOutput } from './testHeader/testHeader.component.d';
-import { ReactComponentBase } from '../../ReactComponentBase';
+import { ReactComponentBase } from '../../reactComponentBase.component';
 import { TestModService } from './testMod.component.service';
 
 @Component({
@@ -26,5 +26,9 @@ export class TestModComponent extends ReactComponentBase<ITestModProps, ITestMod
 
     onChange(event: ITestHeaderOutput) {
        this.states.button.handler();
+    }
+
+    typeChanged() {
+        this.setStates(this.svc.typeChangedHandler(this.props, this.states));
     }
 }

@@ -22,7 +22,7 @@ export class MyEventEmitter<T> extends EventEmitter<T> {
     }
 }
 
-@Directive()
+@Directive({})
 export class ReactComponentBase<P, S, O> implements OnChanges {
     private _props: P;
     private _states: S;

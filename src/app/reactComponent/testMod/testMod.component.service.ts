@@ -25,8 +25,8 @@ export class TestModService implements ITestModService {
         return {};
     }
 
-    applyHandler: () => {
-
+    applyHandler() {
+        console.log('apply clicked');
     };
 
     destroyDelegate(props: ITestModProps, states: ITestModStates): void {
@@ -35,5 +35,10 @@ export class TestModService implements ITestModService {
 
     outputFormatter(props: ITestModProps, states: ITestModStates): ITestModOutput {
         return {} as ITestModOutput;
+    }
+
+    typeChangedHandler(props: ITestModProps, states: ITestModStates): ITestModStates {
+        states.headerProp.buttonType = 'cancel';
+        return states;
     }
 }
