@@ -14,7 +14,7 @@
     "allowJs": true,
     "strictPropertyInitialization": false,
     "strict": false,
-    "target": "es6",
+    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -23,8 +23,10 @@
       "dom"
     ],
     "diagnostics": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@app/*": ["./src/app/*"]
+    }
   },
   "angularCompilerOptions": {
       "preserveWhitespaces": true

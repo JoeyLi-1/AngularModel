@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { ITestHeaderProps, ITestHeaderStates, ITestHeaderOutput } from './testHeader.component.d';
-import { ReactComponentBase } from '../../../reactComponentBase.component';
+import { ReactComponentBase } from '../../reactComponentBase.component';
 import { TestHeaderService } from './testHeader.component.service';
 
 @Component({

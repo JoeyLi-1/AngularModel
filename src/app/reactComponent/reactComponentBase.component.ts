@@ -70,8 +70,10 @@ export class ReactComponentBase<P, S, O> implements OnChanges {
         if (_.isObject(data)) {
             _.forEach(_.keys(data), (key) => {
                 if (_.isObject(data[key])) {
+                    // @ts-ignore
                     this.states[key] = _.cloneDeep(data[key]);
                 } else {
+                    // @ts-ignore
                     this._states[key] = data[key];
                 }
             });

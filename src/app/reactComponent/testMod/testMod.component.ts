@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { ITestModProps, ITestModStates, ITestModOutput } from './testMod.component.d';
 import { ITestHeaderOutput } from './testHeader/testHeader.component.d';
-import { ReactComponentBase } from '../../reactComponentBase.component';
+import { ReactComponentBase } from '../reactComponentBase.component';
 import { TestModService } from './testMod.component.service';
 
 @Component({
