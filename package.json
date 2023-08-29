@@ -8,7 +8,8 @@
     "prod": "ng build --prod --optimization=true --source-map=false --build-optimizer=false --progress=true --verbose=true --vendorChunk=true",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve": "ng serve -c development"
   },
   "private": true,
   "dependencies": {

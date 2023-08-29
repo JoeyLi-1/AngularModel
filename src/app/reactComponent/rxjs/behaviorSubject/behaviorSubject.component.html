@@ -1,0 +1,11 @@
+<div class="black-border">
+  <p>
+    behaviorSubject works!
+    <app-normal-text-display [data]="normalObject"></app-normal-text-display>
+  </p>
+  
+  <p>
+    <app-normal-text-display-subject [dataSubject]="normalObject"></app-normal-text-display-subject>
+  </p>
+  <button (click)="changeSubject()">Change Subject</button>
+</div>
