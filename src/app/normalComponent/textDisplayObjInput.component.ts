@@ -1,20 +1,20 @@
 import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges } from "@angular/core";
 
 @Component({
-    selector: 'app-normal-text-display',
+    selector: 'app-normal-text-display-obj-input',
     template: `<div class="black-border">
-            <p>This is Array type input component</p>
+            <p>This is Object type input component</p>
             <p>Rely on both reference and ngChange</p>
-            <p *ngFor="let item of data">{{item.name}}</p>
+            <p>{{data.name}}</p>
             <p>Rely on ngChange only</p>
-            <p *ngFor="let item of _innerData">{{item.name}}</p>
+            <p>{{_innerData.name}}</p>
         </div>`,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class TestDisplayComponent implements OnChanges {
-    protected _innerData = [{name: '1'}];
-    @Input() data: any = [{name: '1'}];
+export class TestDisplayObjInputComponent implements OnChanges {
+    protected _innerData = {name: '1'};
+    @Input() data: any = {name: '1'};
     
     constructor(private cdr: ChangeDetectorRef) {
 

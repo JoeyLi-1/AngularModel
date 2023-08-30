@@ -18,6 +18,7 @@ import { BehaviorSubjectComponent } from '@app/reactComponent/rxjs/behaviorSubje
 
 import { TestDisplayComponent } from '@app/normalComponent/textDisplay.component';
 import { TestDisplaySubjectComponent } from '@app/normalComponent/textDisplaySubject.component';
+import { TestDisplayObjInputComponent } from '@app/normalComponent/textDisplayObjInput.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { TestDisplaySubjectComponent } from '@app/normalComponent/textDisplaySub
     ContentProjectionComponent,
     BehaviorSubjectComponent,
     TestDisplayComponent,
-    TestDisplaySubjectComponent
+    TestDisplaySubjectComponent,
+    TestDisplayObjInputComponent
   ],
   imports: [
     BrowserModule,

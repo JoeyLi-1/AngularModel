@@ -1,0 +1,51 @@
+Angular data change detection - all in one:
+
+	Input Type:
+		Array:
+			assign new array: 
+				(CDS -> normal, UUD -> ref && change, DP -> child): works
+				(CDS -> OnPush, CDR: None, UUD -> ref && change, DP -> child): works
+			Change member property directly:
+				(CDS -> normal, UUD -> ref, DP -> child): works
+				(CDS -> normal, UUD -> change, DP -> child): not working
+				(CDS -> OnPush, CDR: None && manual, UUD -> ref && change, DP -> child): not working
+			Change one member with index directly:
+				(CDS -> normal, UUD -> ref, DP -> child): works
+				(CDS -> normal, UUD -> change, DP -> child): not working
+				(CDS -> OnPush, CDR: None && manual, UUD -> ref && change, DP -> child): not working
+			Push new member:
+				(CDS -> normal, UUD -> ref, DP -> child): works
+				(CDS -> normal, UUD -> change, DP -> child): not working
+				(CDS -> OnPush, CDR: None && manual, UUD -> ref && change, DP -> child): not working
+
+		Object:
+			assign new object:
+				(CDS -> normal, UUD -> ref && change, DP -> child): works
+				(CDS -> OnPush, CDR: None, UUD -> ref && change, DP -> child): works
+			Change member property directly:
+				(CDS -> normal, UUD -> ref, DP -> child): works
+				(CDS -> normal, UUD -> change, DP -> child): not working
+				(CDS -> OnPush, CDR: None && manual, UUD -> ref && change, DP -> child): not working
+		
+		Subject:
+			assign new object:
+				(CDS -> normal, UUD -> change, DP -> child): works
+				(CDS -> OnPush, CDR: None, UUD -> change, DP -> child): works
+			Change member property directly:
+				(CDS -> normal, UUD -> change, DP -> child): works
+				(CDS -> OnPush, CDR: None && manual, UUD -> ref && change, DP -> child): not working
+
+	UI update due to: (UUD)
+		Reference
+		
+		ngOnChange triggered
+		
+	Change detection strategy: (CDS)
+		OnPush:
+		
+		Normal:
+		
+	Data place: (DP)
+		In this component: Everything / every approach works.
+		
+		In child component:
