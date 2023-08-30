@@ -1,5 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { IBehaviorSubjectProps, IBehaviorSubjectStates, IBehaviorSubjectOutput } from './behaviorSubject.component.d';
+import { IBehaviorSubjectProps, IBehaviorSubjectStates, IBehaviorSubjectOutput, ITextContent } from './behaviorSubject.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { BehaviorSubjectService } from './behaviorSubject.component.service';
 import { BehaviorSubject } from 'rxjs';
@@ -29,16 +29,21 @@ const QueuedTestEata = [
 })
 
 export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjectProps, IBehaviorSubjectStates, IBehaviorSubjectOutput> implements OnInit, OnChanges {
-    testSubject = new BehaviorSubject<IBehaviorSubjectStates>({content: [{
+    testSubject = new BehaviorSubject<ITextContent>({
         name: "zero",
         id: 0,
         title: "start"
-    }]});
-    normalObject = [{
+    });
+    normalArray = [{
         name: "zero",
         id: 0,
         title: "start"
     }];
+    normalObject = {
+        name: "zero",
+        id: 0,
+        title: "start"
+    };
     testIndex = 0;
     constructor(private svc: BehaviorSubjectService, private cdr: ChangeDetectorRef) {
         super();
@@ -52,29 +57,47 @@ export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjec
         this.setStates(this.svc.changeDelegate(changes.props.previousValue, changes.props.currentValue, this.states));
     }
 
+    private changeNormalArray(index: number) {
+        // const newnormalArray = [].concat(this.normalArray);
+        // newnormalArray.push(QueuedTestEata[index]);
+        // this.normalArray = newnormalArray;
+
+        // this.normalArray.push(QueuedTestEata[index]);
+        
+
+        // this.normalArray[0] = (QueuedTestEata[index]);
+
+        this.normalArray[0].name = QueuedTestEata[index].name;
+    }
+
     private changeNormalObject(index: number) {
-        // this.normalObject[0] = (QueuedTestEata[index]);
-        // const newNormalObject = [].concat(this.normalObject);
-        // newNormalObject.push(QueuedTestEata[index]);
+        // const newNormalObject = {...QueuedTestEata[index]};
         // this.normalObject = newNormalObject;
-        this.normalObject.push(QueuedTestEata[index]);
-        this.normalObject = this.normalObject;
-        // this.normalObject = _.cloneDeep(this.normalObject);
-        // this.normalObject.id = QueuedTestEata[index].id;
-        // this.normalObject.name = QueuedTestEata[index].name;
-        // this.normalObject.title = QueuedTestEata[index].title;
+        
+        this.normalObject.id = QueuedTestEata[index].id;
+        this.normalObject.name = QueuedTestEata[index].name;
+        this.normalObject.title = QueuedTestEata[index].title;
+    }
+
+    private changeBehaviorSubject(index: number) {
+        // this.testSubject.next(QueuedTestEata[index]);
+        this.testSubject.value.name = QueuedTestEata[index].name;
+    }
+
+    private doChangeData(index: number) {
+        this.changeNormalArray(index);
+        this.changeNormalObject(index);
+        this.changeBehaviorSubject(index);
     }
 
     changeSubject() {
         if (this.testIndex < QueuedTestEata.length) {
-            // this.testSubject.next(QueuedTestEata[this.testIndex]);
-            this.changeNormalObject(this.testIndex);
+            this.doChangeData(this.testIndex);
         } else {
             this.testIndex = 0;
-            // this.testSubject.next(QueuedTestEata[this.testIndex]);
-            this.changeNormalObject(this.testIndex);
+            this.doChangeData(this.testIndex);
         }
         this.testIndex++;
-        // this.cdr.detectChanges();
+        this.cdr.detectChanges();
     }
 }

@@ -1,11 +1,21 @@
 <div class="black-border">
-  <p>
-    behaviorSubject works!
-    <app-normal-text-display [data]="normalObject"></app-normal-text-display>
+  <!-- <p>
+    <app-normal-text-display [data]="normalArray"></app-normal-text-display>
+  </p> -->
+
+  <!-- <p>
+    <app-normal-text-display-obj-input [data]="normalObject"></app-normal-text-display-obj-input>
   </p>
+   -->
+  <!-- <p>
+    <app-normal-text-display-subject [dataSubject]="normalArray"></app-normal-text-display-subject>
+  </p> -->
+
+  <!-- <p>Local Behavior Subject: {{testSubject.value.name}}</p> -->
+
+  <p>Local Object: {{normalObject.name}}</p>
+
+  <!-- <p>Local Array: {{normalArray[0].name}}</p> -->
   
-  <p>
-    <app-normal-text-display-subject [dataSubject]="normalObject"></app-normal-text-display-subject>
-  </p>
   <button (click)="changeSubject()">Change Subject</button>
 </div>
