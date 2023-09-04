@@ -1,6 +1,10 @@
 import { Input, Output, EventEmitter, Directive, OnChanges, SimpleChanges, isDevMode } from '@angular/core';
 import * as _ from 'lodash';
 
+type Readonly<T> = {
+    readonly [P in keyof T]: T[P];
+};
+
 // This flag will output all the emit and change event of all component inherited from ReactComponentBase
 // Just for debugging use. It is only working under dev mode.
 const outputTrackingInfo = true;
@@ -35,7 +39,7 @@ export class ReactComponentBase<P, S, O> implements OnChanges {
         });
     }
 
-    get props(): P {
+    get props(): Readonly<P> {
         return this._props;
     }
 
@@ -43,7 +47,7 @@ export class ReactComponentBase<P, S, O> implements OnChanges {
         this.setStates(val);
     }
 
-    get states(): S {
+    get states(): Readonly<S> {
         return this._states;
     }
 
@@ -66,22 +70,19 @@ export class ReactComponentBase<P, S, O> implements OnChanges {
         }
     }
 
-    setStates(data: { [key: string]: any }, cb?: () => void) {
-        if (_.isObject(data)) {
-            _.forEach(_.keys(data), (key) => {
-                if (_.isObject(data[key])) {
-                    // @ts-ignore
-                    this.states[key] = _.cloneDeep(data[key]);
-                } else {
-                    // @ts-ignore
-                    this._states[key] = data[key];
-                }
-            });
-            if (cb) {
-                cb();
+    setStates(data: Partial<S>, cb?: () => void) {
+        _.forEach(_.keys(data), (key) => {
+            // @ts-ignore
+            if (_.isObject(data[key])) {
+                // @ts-ignore
+                this.states[key] = _.cloneDeep(data[key]);
+            } else {
+                // @ts-ignore
+                this._states[key] = data[key];
             }
-        } else {
-            console.error('setStates param should be an object: ', data);
+        });
+        if (cb) {
+            cb();
         }
     }
 }
