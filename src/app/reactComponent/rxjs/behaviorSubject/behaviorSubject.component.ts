@@ -26,7 +26,7 @@ const QueuedTestEata = [
     templateUrl: './behaviorSubject.component.html',
     styleUrls: ['./behaviorSubject.component.less'],
     providers: [BehaviorSubjectService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjectProps, IBehaviorSubjectStates, IBehaviorSubjectOutput> implements OnInit, OnChanges {
@@ -64,11 +64,11 @@ export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjec
     }
 
     private changeNormalArray(index: number) {
-        // const newnormalArray = [].concat(this.normalArray);
-        // newnormalArray.push(QueuedTestEata[index]);
-        // this.normalArray = newnormalArray;
+        const newnormalArray = [].concat(this.normalArray);
+        newnormalArray.push(QueuedTestEata[index]);
+        this.normalArray = newnormalArray;
 
-        this.normalArray.push(QueuedTestEata[index]);
+        // this.normalArray.push(QueuedTestEata[index]);
         
 
         // this.normalArray[0] = (QueuedTestEata[index]);
@@ -80,9 +80,9 @@ export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjec
         // const newNormalObject = {...QueuedTestEata[index]};
         // this.normalObject = newNormalObject;
         
-        this.normalObject.id = QueuedTestEata[index].id;
+        // this.normalObject.id = QueuedTestEata[index].id;
         this.normalObject.name = QueuedTestEata[index].name;
-        this.normalObject.title = QueuedTestEata[index].title;
+        // this.normalObject.title = QueuedTestEata[index].title;
     }
 
     private changeBehaviorSubject(index: number) {
@@ -101,10 +101,10 @@ export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjec
         // this.testArraySubject.value.push(QueuedTestEata[index]);
         // this.testArraySubject.next(this.testArraySubject.value);
         // this.testArraySubject.next([QueuedTestEata[index]]);
-        const isObj = _.isObject(this.normalArray);
-        const isArr = _.isArray(this.normalArray);
-        console.log(`${isObj} -- ${isArr}`);
-        this.testArraySubject.next(this.normalArray);
+        // const isObj = _.isObject(this.normalArray);
+        // const isArr = _.isArray(this.normalArray);
+        // console.log(`${isObj} -- ${isArr}`);
+        // this.testArraySubject.next(this.normalArray);
     }
 
     changeSubject() {
@@ -115,6 +115,7 @@ export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjec
             this.doChangeData(this.testIndex);
         }
         this.testIndex++;
-        this.cdr.detectChanges();
+        // this.cdr.detectChanges();
+        // this.cdr.markForCheck();
     }
 }

@@ -22,6 +22,7 @@ import { TestDisplayObjInputComponent } from '@app/normalComponent/textDisplayOb
 import { BasicListComponent } from '@app/normalComponent/basicList.component';
 import { ListTestingComponent } from '@app/reactComponent/performanceTesting/listTesting/listTesting.component';
 import { BasicDrawerComponent } from '@app/normalComponent/basicDrawer.component';
+import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTree/officialExample/treeCheckListExample/treeCheckListExample.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BasicDrawerComponent } from '@app/normalComponent/basicDrawer.component
     TestDisplayObjInputComponent,
     BasicListComponent,
     ListTestingComponent,
-    BasicDrawerComponent
+    BasicDrawerComponent,
+    TreeChecklistExample
   ],
   imports: [
     BrowserModule,
