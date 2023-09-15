@@ -1,6 +1,6 @@
 import {SelectionModel} from '@angular/cdk/collections';
 import {FlatTreeControl} from '@angular/cdk/tree';
-import {Component, Injectable} from '@angular/core';
+import {Component, Injectable, OnChanges, SimpleChanges, Input} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -63,10 +63,10 @@ export class ChecklistDatabase {
     this.initialize();
   }
 
-  initialize() {
+  initialize(inputData?: any) {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
-    const data = this.buildFileTree(TREE_DATA, 0);
+    const data = this.buildFileTree(inputData ? inputData : TREE_DATA, 0);
 
     // Notify the change.
     this.dataChange.next(data);
@@ -117,7 +117,7 @@ export class ChecklistDatabase {
   styleUrls: ['treeCheckListExample.css'],
   providers: [ChecklistDatabase]
 })
-export class TreeChecklistExample {
+export class TreeChecklistExample implements OnChanges {
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -136,6 +136,8 @@ export class TreeChecklistExample {
 
   dataSource: MatTreeFlatDataSource<TodoItemNode, TodoItemFlatNode>;
 
+  @Input() data: any;
+
   /** The selection for checklist */
   checklistSelection = new SelectionModel<TodoItemFlatNode>(true /* multiple */);
 
@@ -152,6 +154,15 @@ export class TreeChecklistExample {
     _database.dataChange.subscribe(data => {
       this.dataSource.data = data;
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes.data.isFirstChange()) {
+      this.flatNodeMap.clear();
+      this.nestedNodeMap.clear();
+      this._database.initialize(this.data);
+      this.treeControl.expandAll();
+    }
   }
 
   getLevel = (node: TodoItemFlatNode) => node.level;

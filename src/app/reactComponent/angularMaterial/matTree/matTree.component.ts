@@ -144,6 +144,48 @@ export class DynamicFlatNode {
       }, 1000);
     }
   }
+
+
+const TREE_DATA1 = {
+    DataSet1: {
+      // @ts-ignore
+      DateSet1_val1: null,
+      // @ts-ignore
+      DateSet1_val2: null,
+      // @ts-ignore
+      DateSet1_val3: null,
+      DataSet1_sub1: {
+          // @ts-ignore
+          DataSet1_sub1_val1: null,
+          DataSet1_sub1_val2: ['Blueberry', 'Raspberry'],
+        // @ts-ignore
+          DataSet1_sub1_val3: null,
+      },
+    },
+    Reminders: ['Cook dinner', 'Read the Material Design spec', 'Upgrade Application to Angular'],
+};
+
+const TREE_DATA2 = {
+  DataSet2: {
+    // @ts-ignore
+    DateSet2_val1: null,
+    // @ts-ignore
+    DateSet2_val2: null,
+    // @ts-ignore
+    DateSet2_val3: null,
+    DataSet2_sub1: {
+        // @ts-ignore
+        DataSet2_sub1_val1: null,
+        DataSet2_sub1_val2: ['Blueberry', 'Raspberry'],
+      // @ts-ignore
+        DataSet2_sub1_val3: null,
+    },
+  },
+  Reminders: ['Cook dinner', 'Read the Material Design spec', 'Upgrade Application to Angular'],
+};
+
+  
+
 @Component({
     selector: 'app-matTree',
     templateUrl: './matTree.component.html',
@@ -152,6 +194,8 @@ export class DynamicFlatNode {
 })
 
 export class MatTreeComponent extends ReactComponentBase<IMatTreeProps, IMatTreeStates, IMatTreeOutput>  {
+    dataSet1InUse = true;
+    exampleData: any = TREE_DATA1;
     constructor(private svc: MatTreeService, database: DynamicDatabase) {
         super();
         this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
@@ -176,5 +220,15 @@ export class MatTreeComponent extends ReactComponentBase<IMatTreeProps, IMatTree
 
       addSubElement(node: DynamicFlatNode) {
         this.dataSource.addSubElement(node);
+      }
+
+      changeExampleData() {
+        if (this.dataSet1InUse) {
+          this.dataSet1InUse = false;
+          this.exampleData = TREE_DATA2
+        } else {
+          this.dataSet1InUse = true;
+          this.exampleData = TREE_DATA1
+        }
       }
 }
