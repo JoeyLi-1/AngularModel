@@ -19,6 +19,10 @@ import { BehaviorSubjectComponent } from '@app/reactComponent/rxjs/behaviorSubje
 import { TestDisplayComponent } from '@app/normalComponent/textDisplay.component';
 import { TestDisplaySubjectComponent } from '@app/normalComponent/textDisplaySubject.component';
 import { TestDisplayObjInputComponent } from '@app/normalComponent/textDisplayObjInput.component';
+import { BasicListComponent } from '@app/normalComponent/basicList.component';
+import { ListTestingComponent } from '@app/reactComponent/performanceTesting/listTesting/listTesting.component';
+import { BasicDrawerComponent } from '@app/normalComponent/basicDrawer.component';
+import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTree/officialExample/treeCheckListExample/treeCheckListExample.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { TestDisplayObjInputComponent } from '@app/normalComponent/textDisplayOb
     BehaviorSubjectComponent,
     TestDisplayComponent,
     TestDisplaySubjectComponent,
-    TestDisplayObjInputComponent
+    TestDisplayObjInputComponent,
+    BasicListComponent,
+    ListTestingComponent,
+    BasicDrawerComponent,
+    TreeChecklistExample
   ],
   imports: [
     BrowserModule,

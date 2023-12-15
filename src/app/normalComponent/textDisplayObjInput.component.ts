@@ -1,4 +1,5 @@
 import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges } from "@angular/core";
+import * as _ from 'lodash';
 
 @Component({
     selector: 'app-normal-text-display-obj-input',
@@ -9,7 +10,7 @@ import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges
             <p>Rely on ngChange only</p>
             <p>{{_innerData.name}}</p>
         </div>`,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class TestDisplayObjInputComponent implements OnChanges {
@@ -22,7 +23,7 @@ export class TestDisplayObjInputComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.data && !changes.data.isFirstChange()) {
-            this._innerData = this.data;
+            this._innerData = _.cloneDeep(this.data);
         }
     }
 }

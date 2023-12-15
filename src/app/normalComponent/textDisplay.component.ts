@@ -1,4 +1,5 @@
 import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges } from "@angular/core";
+import * as _ from 'lodash';
 
 @Component({
     selector: 'app-normal-text-display',
@@ -17,12 +18,15 @@ export class TestDisplayComponent implements OnChanges {
     @Input() data: any = [{name: '1'}];
     
     constructor(private cdr: ChangeDetectorRef) {
-
+        setTimeout(() => {
+            this.data.push({name: 'ww'});
+        }, 3000);
     }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.data && !changes.data.isFirstChange()) {
-            this._innerData = this.data;
+            this._innerData = _.cloneDeep(this.data);
+            this.data.push({name: 'childChange'});
         }
     }
 }
