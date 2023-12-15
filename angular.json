@@ -20,7 +20,9 @@
             "outputPath": "dist/my-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -69,22 +71,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-app:build",
-            "port": 4000
+            "port": 4000,
+            "buildTarget": "my-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-app:build:production"
+              "buildTarget": "my-app:build:production"
             },
             "development": {
-              "browserTarget": "my-app:build:development"
+              "buildTarget": "my-app:build:development"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-app:build"
+            "buildTarget": "my-app:build"
           }
         },
         "test": {

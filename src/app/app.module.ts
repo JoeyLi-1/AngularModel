@@ -24,6 +24,8 @@ import { ListTestingComponent } from '@app/reactComponent/performanceTesting/lis
 import { BasicDrawerComponent } from '@app/normalComponent/basicDrawer.component';
 import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTree/officialExample/treeCheckListExample/treeCheckListExample.component';
 
+import { SignalComponent } from '@app/reactComponent/signalTest/signal.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTre
     BasicListComponent,
     ListTestingComponent,
     BasicDrawerComponent,
-    TreeChecklistExample
+    TreeChecklistExample,
+    SignalComponent
   ],
   imports: [
     BrowserModule,
