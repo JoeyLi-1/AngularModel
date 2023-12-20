@@ -25,6 +25,9 @@ import { BasicDrawerComponent } from '@app/normalComponent/basicDrawer.component
 import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTree/officialExample/treeCheckListExample/treeCheckListExample.component';
 
 import { SignalComponent } from '@app/reactComponent/signalTest/signal.component';
+import { SignalSubComponent } from '@app/reactComponent/signalTest/signalSub.component';
+import { ZoneParentComponent } from '@app/reactComponent/zoneTest/zoneParent/zoneParent.component';
+import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneChild.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { SignalComponent } from '@app/reactComponent/signalTest/signal.component
     ListTestingComponent,
     BasicDrawerComponent,
     TreeChecklistExample,
-    SignalComponent
+    SignalComponent,
+    ZoneParentComponent,
+    ZoneChildComponent,
+    SignalSubComponent
   ],
   imports: [
     BrowserModule,

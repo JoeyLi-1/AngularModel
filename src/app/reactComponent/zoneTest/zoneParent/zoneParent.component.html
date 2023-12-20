@@ -1,0 +1,10 @@
+
+  <div >
+    <button (click)="changeText()">Change</button>
+    <p></p>
+    zoneParent works! -- {{states.name}} -- {{counter()}}
+    <input [value]="id1">
+    <input [value]="id2">
+    <label>{{id1 + id2}}</label>
+  </div>
+  <app-zoneChild [props]="states.child" [label]="label()"></app-zoneChild>
