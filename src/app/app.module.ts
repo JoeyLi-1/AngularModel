@@ -26,6 +26,7 @@ import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTre
 
 import { SignalComponent } from '@app/reactComponent/signalTest/signal.component';
 import { SignalSubComponent } from '@app/reactComponent/signalTest/signalSub.component';
+import { ReactSignalComponent } from '@app/reactComponent/signalTest/reactSignal.component';
 import { ZoneParentComponent } from '@app/reactComponent/zoneTest/zoneParent/zoneParent.component';
 import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneChild.component';
 
@@ -50,7 +51,8 @@ import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneC
     SignalComponent,
     ZoneParentComponent,
     ZoneChildComponent,
-    SignalSubComponent
+    SignalSubComponent,
+    ReactSignalComponent
   ],
   imports: [
     BrowserModule,

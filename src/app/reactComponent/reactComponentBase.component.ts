@@ -73,7 +73,12 @@ export class ReactComponentBase<P, S, O> implements OnChanges {
     setStates(data: Partial<S>, cb?: () => void) {
         _.forEach(_.keys(data), (key) => {
             // @ts-ignore
-            if (_.isObject(data[key])) {
+            if (_.isFunction(data[key])) {
+                // @ts-ignore
+                this.states[key] = data[key];
+            }
+            // @ts-ignore
+            else if (_.isObject(data[key])) {
                 // @ts-ignore
                 this.states[key] = _.cloneDeep(data[key]);
             } else {
