@@ -1,39 +1,44 @@
-<div class="flex">
+<div class="app-basic">
   <app-basic-drawer [name]="'testMod'">
     <app-testMod></app-testMod>
   </app-basic-drawer>
 
-<app-basic-drawer [name]="'matTree'">
-  <app-matTree></app-matTree>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'matTree'">
+    <app-matTree></app-matTree>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'flatMatTreeBasic'">
-  <app-flatMatTreeBasic></app-flatMatTreeBasic>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'flatMatTreeBasic'">
+    <app-flatMatTreeBasic></app-flatMatTreeBasic>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'contentProjection'">
-  <app-contentProjection></app-contentProjection>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'contentProjection'">
+    <app-contentProjection></app-contentProjection>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'behaviorSubject'">
-  <app-behaviorSubject></app-behaviorSubject>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'behaviorSubject'">
+    <app-behaviorSubject></app-behaviorSubject>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'listTesting'">
-  <app-listTesting></app-listTesting>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'listTesting'">
+    <app-listTesting></app-listTesting>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'signalTesting'">
-  <test-signal></test-signal>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'signalTesting'">
+    <test-signal></test-signal>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'zoneTesting'">
-  <app-zoneParent></app-zoneParent>
-</app-basic-drawer>
+  <app-basic-drawer [name]="'zoneTesting'">
+    <app-zoneParent></app-zoneParent>
+  </app-basic-drawer>
 
-<app-basic-drawer [name]="'ReactSignalTesting'">
-  <test-react-signal></test-react-signal>
-</app-basic-drawer>
-
+  <app-basic-drawer [name]="'ReactSignalTesting'">
+    <test-react-signal></test-react-signal>
+  </app-basic-drawer>
+  <app-basic-drawer [name]="'CacheTest'">
+    <div><p>Be careful, the service is singleton. But it will not be shared with standalone components</p></div>
+    <div><label>{{cacheNumber}}</label></div>
+    <button (click)="increase()">Increase</button>
+    <button (click)="decrease()">Decrease</button>
+  </app-basic-drawer>
   <router-outlet></router-outlet>
 </div>

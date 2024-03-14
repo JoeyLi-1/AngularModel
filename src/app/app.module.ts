@@ -29,6 +29,7 @@ import { SignalSubComponent } from '@app/reactComponent/signalTest/signalSub.com
 import { ReactSignalComponent } from '@app/reactComponent/signalTest/reactSignal.component';
 import { ZoneParentComponent } from '@app/reactComponent/zoneTest/zoneParent/zoneParent.component';
 import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneChild.component';
+import { DataCache } from '@app/services/dataCache.service';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneC
     MatButtonModule
   ],
   providers: [
+    DataCache
   ],
   bootstrap: [AppComponent]
 })
