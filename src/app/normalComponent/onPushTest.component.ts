@@ -24,7 +24,7 @@ export class AOpComponent {
     <span>User name: {{user.name}}</span>
     <c-op [user]="user"></c-op>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush // If comment this, name will change for component b-op. 
+  changeDetection: ChangeDetectionStrategy.OnPush // If comment out this, name will change for component b-op. 
 })
 export class BOpComponent {
   @Input() user: any;
@@ -39,7 +39,7 @@ export class BOpComponent {
         <p>COpComponent</p>
       <span>User name: {{user.name}}</span>
     `,
-    changeDetection: ChangeDetectionStrategy.OnPush // if comment this, name will change for component c-op
+    changeDetection: ChangeDetectionStrategy.OnPush // if comment out this, name will change for component c-op
   })
 
   // If b-op defined onPush, but c-op did  not. When click button in a-op, b-op will not become dirty. c-op will not change as well.
