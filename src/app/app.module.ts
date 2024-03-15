@@ -30,6 +30,7 @@ import { ReactSignalComponent } from '@app/reactComponent/signalTest/reactSignal
 import { ZoneParentComponent } from '@app/reactComponent/zoneTest/zoneParent/zoneParent.component';
 import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneChild.component';
 import { DataCache } from '@app/services/dataCache.service';
+import { AOpComponent, BOpComponent, COpComponent } from '@app/normalComponent/onPushTest.component';
 
 
 @NgModule({
@@ -53,7 +54,10 @@ import { DataCache } from '@app/services/dataCache.service';
     ZoneParentComponent,
     ZoneChildComponent,
     SignalSubComponent,
-    ReactSignalComponent
+    ReactSignalComponent,
+    AOpComponent,
+    BOpComponent,
+    COpComponent
   ],
   imports: [
     BrowserModule,

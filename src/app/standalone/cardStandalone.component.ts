@@ -21,7 +21,7 @@ import { DataCache } from '@app/services/dataCache.service';
 export class CardStandaloneComponent {
   cacheNumber = 0;
   constructor(private cache: DataCache) {
-    cache.setFirstNumCache(100);
+    cache.setFirstNumCache(100);            // The DataCache is not shared between standalone component and other component
     this.init();
   }
 

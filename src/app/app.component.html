@@ -34,6 +34,11 @@
   <app-basic-drawer [name]="'ReactSignalTesting'">
     <test-react-signal></test-react-signal>
   </app-basic-drawer>
+
+  <app-basic-drawer [name]="'OnPushTest'">
+    <a-op></a-op>
+  </app-basic-drawer>
+
   <app-basic-drawer [name]="'CacheTest'">
     <div><p>Be careful, the service is singleton. But it will not be shared with standalone components</p></div>
     <div><label>{{cacheNumber}}</label></div>
