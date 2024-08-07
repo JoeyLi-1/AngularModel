@@ -23,6 +23,7 @@ import { BasicListComponent } from '@app/normalComponent/basicList.component';
 import { ListTestingComponent } from '@app/reactComponent/performanceTesting/listTesting/listTesting.component';
 import { BasicDrawerComponent } from '@app/normalComponent/basicDrawer.component';
 import { TreeChecklistExample } from '@app/reactComponent/angularMaterial/matTree/officialExample/treeCheckListExample/treeCheckListExample.component';
+import { HomeComponent } from '@app/normalComponent/home.component';
 
 import { SignalComponent } from '@app/reactComponent/signalTest/signal.component';
 import { SignalSubComponent } from '@app/reactComponent/signalTest/signalSub.component';
@@ -31,6 +32,7 @@ import { ZoneParentComponent } from '@app/reactComponent/zoneTest/zoneParent/zon
 import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneChild.component';
 import { DataCache } from '@app/services/dataCache.service';
 import { AOpComponent, BOpComponent, COpComponent } from '@app/normalComponent/onPushTest.component';
+import { GridComponent } from '@app/reactComponent/grid/grid.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { AOpComponent, BOpComponent, COpComponent } from '@app/normalComponent/o
     ReactSignalComponent,
     AOpComponent,
     BOpComponent,
-    COpComponent
+    COpComponent,
+    HomeComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

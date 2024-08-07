@@ -1,0 +1,13 @@
+<div>
+  <table>
+    <thead>
+      <th *ngFor="let column of states.columns">{{column.name}}</th>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let row of states.rows"> 
+        <td *ngFor="let cell of row">{{cell.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
