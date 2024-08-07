@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,6 +72,7 @@ import { GridComponent } from '@app/reactComponent/grid/grid.component';
     MatButtonModule
   ],
   providers: [
+    provideExperimentalZonelessChangeDetection(),
     DataCache
   ],
   bootstrap: [AppComponent]
