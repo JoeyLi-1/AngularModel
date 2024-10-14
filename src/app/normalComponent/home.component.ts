@@ -51,8 +51,8 @@ import { DataCache } from '@app/services/dataCache.service';
                 <button (click)="decrease()">Decrease</button>
             </app-basic-drawer>
 
-            <app-basic-drawer [name]="'Grid Test'">
-                <app-grid [props]="gridProps"></app-grid>
+            <app-basic-drawer [name]="'Mat table test'">
+                <app-matTable></app-matTable>
             </app-basic-drawer>
         </div>
     `,

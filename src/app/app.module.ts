@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { TestModModule } from './reactComponent/testMod/testMod.module';
 import { MatTreeComponent } from '@app/reactComponent/angularMaterial/matTree/matTree.component';
@@ -15,6 +16,7 @@ import { ZippyBasicComponent } from '@app/reactComponent/contentProjection/singl
 import { ZippyMultislotComponent } from '@app/reactComponent/contentProjection/multiSlotProjection.component';
 import { ContentProjectionComponent } from '@app/reactComponent/contentProjection/contentProjection/contentProjection.component';
 import { BehaviorSubjectComponent } from '@app/reactComponent/rxjs/behaviorSubject/behaviorSubject.component';
+import { MatTableComponent } from '@app/reactComponent/angularMaterial/table/matTable.component';
 
 import { TestDisplayComponent } from '@app/normalComponent/textDisplay.component';
 import { TestDisplaySubjectComponent } from '@app/normalComponent/textDisplaySubject.component';
@@ -32,7 +34,6 @@ import { ZoneParentComponent } from '@app/reactComponent/zoneTest/zoneParent/zon
 import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneChild.component';
 import { DataCache } from '@app/services/dataCache.service';
 import { AOpComponent, BOpComponent, COpComponent } from '@app/normalComponent/onPushTest.component';
-import { GridComponent } from '@app/reactComponent/grid/grid.component';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import { GridComponent } from '@app/reactComponent/grid/grid.component';
     BOpComponent,
     COpComponent,
     HomeComponent,
-    GridComponent
+    MatTableComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +70,8 @@ import { GridComponent } from '@app/reactComponent/grid/grid.component';
     TestModModule.forRoot(),
     MatTreeModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     provideExperimentalZonelessChangeDetection(),
