@@ -1,4 +1,4 @@
-import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges } from "@angular/core";
+import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges, inject } from "@angular/core";
 import * as _ from 'lodash';
 
 @Component({
@@ -14,12 +14,10 @@ import * as _ from 'lodash';
 })
 
 export class TestDisplayObjInputComponent implements OnChanges {
+    private cdr = inject(ChangeDetectorRef);
+
     protected _innerData = {name: '1'};
     @Input() data: any = {name: '1'};
-    
-    constructor(private cdr: ChangeDetectorRef) {
-
-    }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.data && !changes.data.isFirstChange()) {

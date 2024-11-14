@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { DataCache } from '@app/services/dataCache.service';
 @Component({
     selector: 'home',
@@ -60,14 +60,13 @@ import { DataCache } from '@app/services/dataCache.service';
 })
 
 export class HomeComponent {
+    private cache = inject(DataCache);
+
     cacheNumber = 0;
     gridProps = {
         columns: ['column1', 'column2'],
         rows: [['row11', 'row12'], ['row21', 'row22']]
     };
-    constructor(private cache: DataCache) {
-
-    }
 
     increase() {
         this.cache.setFirstNumCache(this.cache.getFirstNumCache() + 1);

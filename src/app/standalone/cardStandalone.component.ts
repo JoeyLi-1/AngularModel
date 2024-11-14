@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataCache } from '@app/services/dataCache.service';
 
@@ -19,8 +19,12 @@ import { DataCache } from '@app/services/dataCache.service';
   `
 })
 export class CardStandaloneComponent {
+  private cache = inject(DataCache);
+
   cacheNumber = 0;
-  constructor(private cache: DataCache) {
+  constructor() {
+    const cache = this.cache;
+
     cache.setFirstNumCache(100);            // The DataCache is not shared between standalone component and other component
     this.init();
   }

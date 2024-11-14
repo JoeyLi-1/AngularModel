@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, inject } from '@angular/core';
 import { ITestModProps, ITestModStates, ITestModOutput } from './testMod.component.d';
 import { ITestHeaderOutput } from './testHeader/testHeader.component.d';
 import { ReactComponentBase } from '../reactComponentBase.component';
@@ -12,7 +12,8 @@ import { TestModService } from './testMod.component.service';
 })
 
 export class TestModComponent extends ReactComponentBase<ITestModProps, ITestModStates, ITestModOutput> implements OnInit, OnChanges {
-    constructor(private svc: TestModService) {
+    private svc = inject(TestModService);
+    constructor() {
         super();
     }
 

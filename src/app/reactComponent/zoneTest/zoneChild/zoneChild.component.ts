@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, Input, inject } from '@angular/core';
 import { IZoneChildProps, IZoneChildStates, IZoneChildOutput } from './zoneChild.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { ZoneChildService } from './zoneChild.component.service';
@@ -11,8 +11,11 @@ import { ZoneChildService } from './zoneChild.component.service';
 })
 
 export class ZoneChildComponent extends ReactComponentBase<IZoneChildProps, IZoneChildStates, IZoneChildOutput> implements OnInit, OnChanges {
+    private svc = inject(ZoneChildService);
+
     @Input() label: string = ''
-    constructor(private svc: ZoneChildService) {
+
+    constructor() {
         super();
     }
 

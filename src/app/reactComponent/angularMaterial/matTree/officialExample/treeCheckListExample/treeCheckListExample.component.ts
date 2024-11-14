@@ -1,6 +1,6 @@
 import {SelectionModel} from '@angular/cdk/collections';
 import {FlatTreeControl} from '@angular/cdk/tree';
-import {Component, Injectable, OnChanges, SimpleChanges, Input} from '@angular/core';
+import { Component, Injectable, OnChanges, SimpleChanges, Input, inject } from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
 import {BehaviorSubject} from 'rxjs';
 
@@ -113,6 +113,8 @@ export class ChecklistDatabase {
   providers: [ChecklistDatabase]
 })
 export class TreeChecklistExample implements OnChanges {
+  private _database = inject(ChecklistDatabase);
+
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -136,7 +138,9 @@ export class TreeChecklistExample implements OnChanges {
   /** The selection for checklist */
   checklistSelection = new SelectionModel<TodoItemFlatNode>(true /* multiple */);
 
-  constructor(private _database: ChecklistDatabase) {
+  constructor() {
+    const _database = this._database;
+
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,

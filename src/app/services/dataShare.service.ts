@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { DataCache } from './dataCache.service';
 
 @Injectable()
 export class DataShare {
-    private sharedData: {firstNumberCache: number};
-    constructor(private cache: DataCache) {
+    private cache = inject(DataCache);
 
-    }
+    private sharedData: {firstNumberCache: number};
 
     getData(fromCache: boolean): number {
         if (fromCache) {

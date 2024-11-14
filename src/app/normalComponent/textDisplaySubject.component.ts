@@ -1,4 +1,4 @@
-import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges } from "@angular/core";
+import { Input, Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges, inject } from "@angular/core";
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -11,6 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class TestDisplaySubjectComponent implements OnChanges {
+    private cdr = inject(ChangeDetectorRef);
+
     _data = new BehaviorSubject([{name: '1'}]);
     @Input('dataSubject') 
     set dataSubject(val: any) {
@@ -18,10 +20,6 @@ export class TestDisplaySubjectComponent implements OnChanges {
         console.log('Input Setter here');
         // this.cdr.detectChanges();
     };
-
-    constructor(private cdr: ChangeDetectorRef) {
-
-    }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.dataSubject && !changes.dataSubject.isFirstChange()) {

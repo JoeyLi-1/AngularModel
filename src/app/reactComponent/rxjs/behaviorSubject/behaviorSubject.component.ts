@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef, inject } from '@angular/core';
 import { IBehaviorSubjectProps, IBehaviorSubjectStates, IBehaviorSubjectOutput, ITextContent } from './behaviorSubject.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { BehaviorSubjectService } from './behaviorSubject.component.service';
@@ -30,6 +30,13 @@ const QueuedTestEata = [
 })
 
 export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjectProps, IBehaviorSubjectStates, IBehaviorSubjectOutput> implements OnInit, OnChanges {
+    private svc = inject(BehaviorSubjectService);
+    private cdr = inject(ChangeDetectorRef);
+
+    constructor() {
+        super();
+    }
+
     testSubject = new BehaviorSubject<ITextContent>({
         name: "zero",
         id: 0,
@@ -51,9 +58,6 @@ export class BehaviorSubjectComponent extends ReactComponentBase<IBehaviorSubjec
         title: "start"
     };
     testIndex = 0;
-    constructor(private svc: BehaviorSubjectService, private cdr: ChangeDetectorRef) {
-        super();
-    }
 
     ngOnInit() {
         this.setStates(this.svc.initDelegate(this.props, this.states));

@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, inject } from '@angular/core';
 import { ITestHeaderProps, ITestHeaderStates, ITestHeaderOutput } from './testHeader.component.d';
 import { ReactComponentBase } from '../../reactComponentBase.component';
 import { TestHeaderService } from './testHeader.component.service';
@@ -11,7 +11,9 @@ import { TestHeaderService } from './testHeader.component.service';
 })
 
 export class TestHeaderComponent extends ReactComponentBase<ITestHeaderProps, ITestHeaderStates, ITestHeaderOutput> implements OnInit, OnChanges {
-    constructor(private svc: TestHeaderService) {
+    private svc = inject(TestHeaderService);
+
+    constructor() {
         super();
         console.log(`${this.constructor.name} constructor`);
     }

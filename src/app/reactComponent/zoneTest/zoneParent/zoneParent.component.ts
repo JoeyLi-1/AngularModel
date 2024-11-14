@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, NgZone, ChangeDetectorRef, signal } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, NgZone, ChangeDetectorRef, signal, inject } from '@angular/core';
 import { IZoneParentProps, IZoneParentStates, IZoneParentOutput } from './zoneParent.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { ZoneParentService } from './zoneParent.component.service';
@@ -11,12 +11,17 @@ import { ZoneParentService } from './zoneParent.component.service';
 })
 
 export class ZoneParentComponent extends ReactComponentBase<IZoneParentProps, IZoneParentStates, IZoneParentOutput> implements OnInit, OnChanges {
+    private svc = inject(ZoneParentService);
+    private zone = inject(NgZone);
+    private cdr = inject(ChangeDetectorRef);
+
     timer: any;
     counter = signal(0);
     label = signal('');
     id1 = 0;
     id2 = 0;
-    constructor(private svc: ZoneParentService, private zone: NgZone, private cdr: ChangeDetectorRef) {
+
+    constructor() {
         super();
     }
 

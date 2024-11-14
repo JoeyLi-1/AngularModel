@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, OnDestroy, inject } from '@angular/core';
 import { IDummyTextProps, IDummyTextStates, IDummyTextOutput } from './dummyText.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { DummyTextService } from './dummyText.component.service';
@@ -11,7 +11,8 @@ import { DummyTextService } from './dummyText.component.service';
 })
 
 export class DummyTextComponent extends ReactComponentBase<IDummyTextProps, IDummyTextStates, IDummyTextOutput> implements OnInit, OnChanges, OnDestroy {
-    constructor(private svc: DummyTextService) {
+    private svc = inject(DummyTextService);
+    constructor() {
         super();
     }
 

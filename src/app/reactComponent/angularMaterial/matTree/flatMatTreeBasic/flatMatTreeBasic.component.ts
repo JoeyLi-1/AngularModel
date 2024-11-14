@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, inject } from '@angular/core';
 import { IFlatMatTreeBasicProps, IFlatMatTreeBasicStates, IFlatMatTreeBasicOutput } from './flatMatTreeBasic.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { FlatMatTreeBasicService } from './flatMatTreeBasic.component.service';
@@ -52,6 +52,8 @@ interface FoodNode {
 })
 
 export class FlatMatTreeBasicComponent extends ReactComponentBase<IFlatMatTreeBasicProps, IFlatMatTreeBasicStates, IFlatMatTreeBasicOutput> implements OnInit, OnChanges {
+    private svc = inject(FlatMatTreeBasicService);
+
     private _transformer = (node: FoodNode, level: number) => {
         return {
           expandable: !!node.children && node.children.length > 0,
@@ -73,7 +75,7 @@ export class FlatMatTreeBasicComponent extends ReactComponentBase<IFlatMatTreeBa
       );
     
       dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-    constructor(private svc: FlatMatTreeBasicService) {
+    constructor() {
         super();
         this.dataSource.data = TREE_DATA;
     }

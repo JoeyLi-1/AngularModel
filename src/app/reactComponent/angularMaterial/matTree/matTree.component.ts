@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, ViewChild, Injectable } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, ViewChild, Injectable, inject } from '@angular/core';
 import { IMatTreeProps, IMatTreeStates, IMatTreeOutput } from './matTree.component.d';
 import { ReactComponentBase } from '@app/reactComponent/reactComponentBase.component';
 import { MatTreeService } from './matTree.component.service';
@@ -194,9 +194,13 @@ const TREE_DATA2 = {
 })
 
 export class MatTreeComponent extends ReactComponentBase<IMatTreeProps, IMatTreeStates, IMatTreeOutput>  {
+    private svc = inject(MatTreeService);
+
     dataSet1InUse = true;
     exampleData: any = TREE_DATA1;
-    constructor(private svc: MatTreeService, database: DynamicDatabase) {
+    constructor() {
+        const database = inject(DynamicDatabase);
+
         super();
         this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
         this.dataSource = new DynamicDataSource(this.treeControl, database);
