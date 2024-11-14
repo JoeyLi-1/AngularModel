@@ -6,9 +6,13 @@ import * as _ from 'lodash';
     template: `<div class="black-border">
             <p>This is Array type input component</p>
             <p>Rely on both reference and ngChange</p>
-            <p *ngFor="let item of data">{{item.name}}</p>
+            @for (item of data; track item) {
+<p>{{item.name}}</p>
+}
             <p>Rely on ngChange only</p>
-            <p *ngFor="let item of _innerData">{{item.name}}</p>
+            @for (item of _innerData; track item) {
+<p>{{item.name}}</p>
+}
         </div>`,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

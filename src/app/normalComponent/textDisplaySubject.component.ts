@@ -5,7 +5,9 @@ import { BehaviorSubject } from 'rxjs';
     selector: 'app-normal-text-display-subject',
     template: `<div class="black-border">
         <p>This is Subject type input component</p>
-        <p *ngFor="let item of _data.value">Subject + {{item.name}}</p>
+        @for (item of _data.value; track item) {
+<p>Subject + {{item.name}}</p>
+}
         </div>`,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

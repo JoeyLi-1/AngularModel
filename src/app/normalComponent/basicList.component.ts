@@ -5,7 +5,9 @@ import { Input, Component, OnChanges, SimpleChanges } from "@angular/core";
     template: `<div class="black-border">
             <p>This is a basic list</p>
             <p>Rely on ngChange only</p>
-            <p *ngFor="let item of _innerData">{{item.name}}</p>
+            @for (item of _innerData; track item) {
+<p>{{item.name}}</p>
+}
         </div>`,
 })
 

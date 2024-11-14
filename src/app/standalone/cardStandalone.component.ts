@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DataCache } from '@app/services/dataCache.service';
 
 @Component({
   selector: 'card-standalone',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   providers: [DataCache],
   template: `
     <div class="corp-card-actions">

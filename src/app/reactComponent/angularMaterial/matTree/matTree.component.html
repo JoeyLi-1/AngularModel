@@ -16,9 +16,11 @@
     </button>
     {{node.item}}
     <app-dummyText></app-dummyText>
-    <mat-progress-bar *ngIf="node.isLoading"
+    @if (node.isLoading) {
+<mat-progress-bar
                       mode="indeterminate"
                       class="example-tree-progress-bar"></mat-progress-bar>
+}
   </mat-tree-node>
 </mat-tree>
 <button (click)="addElement()">Add Element</button>

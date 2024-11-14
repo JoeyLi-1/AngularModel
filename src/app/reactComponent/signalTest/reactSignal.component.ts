@@ -29,7 +29,9 @@ interface IReactSignalOutput {
         
         <button (click)="decrease()" [disabled]="canDecrease()">Decrease</button>
         <p>Name starts with M</p>
-        <div *ngFor="let member of computedNames()">{{member.id}} - {{member.name}}</div>
+        @for (member of computedNames(); track member) {
+<div>{{member.id}} - {{member.name}}</div>
+}
         
         <div style="height: 300px; width: 300px; background-color: #2f487e;" (mousemove)="onMousemove()"></div>
         <test-signal-sub [members]="states.targetsSignal()"></test-signal-sub>
