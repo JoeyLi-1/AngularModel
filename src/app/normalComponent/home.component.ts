@@ -43,6 +43,9 @@ import { DataCache } from '@app/services/dataCache.service';
             <app-basic-drawer [name]="'OnPushTest'">
                 <a-op></a-op>
             </app-basic-drawer>
+            <app-basic-drawer [name]="'Standalone'">
+                <card-standalone></card-standalone>
+            </app-basic-drawer>
 
             <app-basic-drawer [name]="'CacheTest'">
                 <div><p>Be careful, the service is singleton. But it will not be shared with standalone components</p></div>

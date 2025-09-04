@@ -35,6 +35,8 @@ import { ZoneChildComponent } from '@app/reactComponent/zoneTest/zoneChild/zoneC
 import { DataCache } from '@app/services/dataCache.service';
 import { AOpComponent, BOpComponent, COpComponent } from '@app/normalComponent/onPushTest.component';
 
+import { CardStandaloneComponent } from '@app/standalone/cardStandalone.component';
+
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ import { AOpComponent, BOpComponent, COpComponent } from '@app/normalComponent/o
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    CardStandaloneComponent
   ],
   providers: [
     provideExperimentalZonelessChangeDetection(),

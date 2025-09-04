@@ -1,0 +1,15 @@
+
+<div #container style="display: flex; height: 100vh;">
+  <div #leftPanel style="flex: 1; overflow-y: auto; border-right: 1px solid #ccc; padding: 16px; max-height: 100vh;">
+    <h2>Left Panel</h2>
+    <div style="height: 2000px; background: #f9f9f9;">Scroll this panel independently.</div>
+  </div>
+  <div #spacer style="width: 20px; overflow-y: auto; cursor: pointer; background: red; max-height: 100vh;">
+    <!-- Spacer for outside scroll -->
+    <div style="height: 2000px;"></div>
+  </div>
+  <div #rightPanel style="flex: 1; overflow-y: auto; padding: 16px; max-height: 100vh;">
+    <h2>Right Panel</h2>
+    <div style="height: 2000px; background: #f0f0f0;">Scroll this panel independently.</div>
+  </div>
+</div>

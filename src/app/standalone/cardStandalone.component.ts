@@ -6,7 +6,7 @@ import { DataCache } from '@app/services/dataCache.service';
   selector: 'card-standalone',
   standalone: true,
   imports: [],
-  providers: [DataCache],
+  // providers: [DataCache],  without provider, the service is a module level singleton again.
   template: `
     <div class="corp-card-actions">
       <p>
